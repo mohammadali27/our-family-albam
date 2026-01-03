@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>login page</title>
+    <title>Login Page</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -40,12 +40,34 @@
 </head>
 <body>
     <h2>Login to Your Account</h2>
-    <form action="/submit-login" method="post">
+    <form id="loginForm">
         <label for="username">Username:</label><br>
         <input type="text" id="username" name="username" required><br><br>
         <label for="password">Password:</label><br>
         <input type="password" id="password" name="password" required><br><br>
         <input type="submit" value="Login">
     </form>
+
+    <script>
+        // Example credentials
+        const correctUsername = "myfamily";
+        const correctPassword = "123456";
+
+        const form = document.getElementById("loginForm");
+
+        form.addEventListener("submit", function(event) {
+            event.preventDefault(); // Form submit block
+
+            const username = document.getElementById("username").value;
+            const password = document.getElementById("password").value;
+
+            if(username === correctUsername && password === correctPassword) {
+                // সঠিক হলে অন্য পেজে রিডাইরেক্ট
+                window.location.href = "home.html"; // এখানে আপনার পেজের নাম দিন
+            } else {
+                alert("Username বা Password ভুল!");
+            }
+        });
+    </script>
 </body>
 </html>
